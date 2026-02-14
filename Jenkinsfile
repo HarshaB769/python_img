@@ -19,16 +19,14 @@ pipeline{
        stage('Deploy App'){
         steps{
             script{
-                sh """
-                docker stop python-mg-container || true
-                docker rm python-mg-container || true
-                docker run -d\
-                    --name python-mg-container \
-                    -p 5000:5000
-                    -e PORT = '${PORT}' \
-                    python_img
+                
+                sh '''
+docker stop python-mg-container || true
+docker rm python-mg-container || true
+docker run -d --name python-mg-container -p 5000:5000 python_img
+'''
 
-                """
+                
             }
         }
        }
