@@ -21,8 +21,8 @@ pipeline{
             script{
                 
                 sh '''
-docker stop python-mg-container || true
-docker rm python-mg-container || true
+docker stop python-img-container || true
+docker rm python-img-container || true
 docker run -d --name python-mg-container -p 5000:5000 python_img
 '''
 
